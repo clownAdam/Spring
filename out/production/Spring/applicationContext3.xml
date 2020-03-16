@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="student" class="com.itlike.demo4.Student">
+        <constructor-arg name="name" value="zhangchun"/>
+        <constructor-arg name="age" value="12"/>
+        <property name="dog" value="#{dog2}"/>
+        <property name="dogName" value="#{dog2.name}"/>
+        <property name="dogAge" value="#{dog2.age}"/>
+        <property name="attr">
+            <list>
+                <value>zs</value>
+                <value>ww</value>
+                <value>ls</value>
+            </list>
+        </property>
+        <property name="myList">
+            <list>
+                <value>123</value>
+                <value>456</value>
+                <value>789</value>
+            </list>
+        </property>
+        <property name="mySet">
+            <set>
+                <value>fe</value>
+                <value>fe2</value>
+            </set>
+        </property>
+        <property name="myMap">
+            <map>
+                <entry key="key1" value="value1"></entry>
+                <entry key="key2" value="value2"></entry>
+                <entry key="key3" value="value3"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="dog" class="com.itlike.demo4.Dog" p:name="WC" p:color="RED" p:age="10">
+
+        <!--<property name="name" value="wc"/>
+        <property name="age" value="10"/>
+        <property name="color" value="red"/>-->
+    </bean>
+    <bean id="dog2" class="com.itlike.demo4.Dog">
+
+        <property name="name" value="#{'wc'}"/>
+        <property name="age" value="#{103232}"/>
+        <property name="color" value="#{'red'}"/>
+    </bean>
+</beans>

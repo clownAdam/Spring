@@ -10,6 +10,12 @@ package com.itlike.demo1;
  * @Version: 1.0
  */
 public class UserDaoOracleImpl implements UserDao  {
+    public String name;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public void save() {
         System.out.println("oracle---save");
